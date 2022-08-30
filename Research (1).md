@@ -167,9 +167,17 @@ This node can write to the console on the right of the flow, or to the Debug-con
 First you can decide which attribute or field should be printed, then where this should be printed.
 
 ### Complete-Node
+![Complete-Node](NRCN.jpg)
 
 This Node triggers when another node completes it's operation.
 No need for pictures or anything, just check the node that should have finished it's action to start this node.
+
+### Catch-Node
+![Complete-Node](NRCAN.jpg)
+
+Again no big need to explain a lot, it catches appearing errors, you can change which nodes errors should be caught and also if the flow should be forced to continue
+
+### Status-Node
 ## First Example - multiplication of two variable put in by the User
 This is a good example to analyze the variable concept of Node-Red as well as a bit of Visualization via Node-Red.
 ![components](NRE1.jpg)
