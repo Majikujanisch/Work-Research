@@ -178,6 +178,9 @@ No need for pictures or anything, just check the node that should have finished 
 Again no big need to explain a lot, it catches appearing errors, you can change which nodes errors should be caught and also if the flow should be forced to continue
 
 ### Status-Node
+![Status-Node](NRSN.jpg)
+
+
 ## First Example - multiplication of two variable put in by the User
 This is a good example to analyze the variable concept of Node-Red as well as a bit of Visualization via Node-Red.
 ![components](NRE1.jpg)
