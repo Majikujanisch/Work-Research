@@ -14,6 +14,7 @@ It's a well known facility bus. It knows Aktors (like little bridges that give t
             |________________       
 ~~~
 With one Bus you can have 15 "Floors", 15 "Rooms" or "Lines" and 255 Users.
+
 ### Packet Strucktur (German):
 
 >     Oktet aus Kontrollbyte mit Priorisierung (00 Systemfunktion, 10 Alarmfunktion, 01 Hohe Prio, 11 norm Prio)
