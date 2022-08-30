@@ -68,12 +68,14 @@ With Node-Red you can theoratically schedule tasks but also build an interface w
 What are Nodes? - Nodes are everything you can connect with wires, or everything that brings something into the flow, does something or brings something out of the flow.
 
 These Nodes can be connected which basically tells the data-object where to go next. The standard name for this object is msg, if you want to send one or more data to next node you use the msg.payload field.
+
+Important is also to deploy the flow before testing, as changes only apply after deployment.
+
+Links to Node-Description:
 ### Common
 - [Inject-Node](#inject-node)
 - [Debug-Node](#debug-node)
-- [ ] not done
 - [Complete-Node](#complete-node)
-- [ ] not done
 - [Catch-Node](#catch-node)
 - [ ] not done
 - [Status-Node](#status-node)
@@ -100,11 +102,51 @@ These Nodes can be connected which basically tells the data-object where to go n
 - [ ] not done
 - [Delay-Node](#delay-node)
 - [ ] not done
-- [Trigger-Node](#trigger-node) 
+- [Trigger-Node](#trigger-node)
 - [ ] not done
 - [Exec-Node](#exec-node)
 - [ ] not done
 - [Filter-Node](#filter-node)
+- [ ] not done
+
+### Network
+- [ ] not done
+
+### Sequence
+- [Split-Node](#split-node)
+- [ ] not done
+- [Join-Node](#join-node)
+- [ ] not done
+- [Sort-Node](#sort-node)
+- [ ] not done
+- [Batch-Node](#batch-node)
+- [ ] not done
+
+### Parser
+- [ ] not done
+
+### Storage
+- [ ] not done
+
+### Analysis
+- [ ] not done
+
+### Social
+- [ ] not done
+
+### Advanced
+- [ ] not done
+
+### IOBroker
+- [ ] not done
+
+### Operating Systemfunktion
+- [ ] not done
+
+### Polymer
+- [ ] not done
+
+### Dashboard
 - [ ] not done
 
 ### Inject-Node
@@ -115,10 +157,35 @@ With this Node you can "inject" a specific message into the flow, this can be on
 ![Inject-Node fields](NRIN2.jpg)
 
 You can define the payload but also other Objectfields can be added, at the bottom you can configurate if or when to repeat the injection.
+
+### Debug-Node
+![Debug-Node](NRDN1t.jpg)
+
+This node can write to the console on the right of the flow, or to the Debug-console. Here you can check if your Object are built right or if the Object has some mistakes in it.
+![Debug-Node-fields](NRDN2.jpg)
+
+First you can decide which attribute or field should be printed, then where this should be printed.
+
+### Complete-Node
+
+This Node triggers when another node completes it's operation.
+No need for pictures or anything, just check the node that should have finished it's action to start this node.
 ## First Example - multiplication of two variable put in by the User
 This is a good example to analyze the variable concept of Node-Red as well as a bit of Visualization via Node-Red.
 ![components](NRE1.jpg)
+Important here is to join the two msg.payload from the numeric nodes to one single msg.payload. In the join you have to set the field "After a number of message parts" to 2.
+the code in the function node should look somewhat like this:
+~~~javascript
+var num1 = msg.payload[0];
+var num2 = msg.payload[1];
+var calc = num1 * num2;
+msg.payload = calc;
+return msg;
+~~~
+you would'nt have to declare two new variable but for readability i did it. As mentioned before it is importent to save data that has to be used by the next node in the msg.payload variable.
+As Node-Red only send Objects between nodes you can't just send the number.
 
+In case you can't see your widget nodes on the Dashboard make sure to have chosen the right tab an group in the group field of visualization nodes (numeric-input, text-output, gauge, etc.).
 # TODO
 - [ ] nodes erklären
 - [ ] Visualisierung mit groups usw erklären
