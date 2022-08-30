@@ -45,7 +45,6 @@ To stop you type:
 2022-08-29 08:39:17,058 INFO  - Stopping the service with id 'iobroker(test)' **right output**
 
 Now we can download a new version of NodeJS, preferable 16.x [link to NodeJS](https://nodejs.org/en/download/)
-[link to test](Test)
 
 Now we change the name of the current NodeJS in the IOBroker instance directory to "NodeJSBackUp" or anything else. After that you can insert the just downloaded NodeJS. The most important step now is to coüy the nodevars.bat from the NodeJSBackUp into the new NodeJS folder. This file is for the IOBroker CMD commands.
 Now we have to run the installation wizard again and choose the secon option and "repair" the instance. The File wanted can be found under /IOBroker/instanceName/iobroker-data
@@ -69,12 +68,52 @@ With Node-Red you can theoratically schedule tasks but also build an interface w
 What are Nodes? - Nodes are everything you can connect with wires, or everything that brings something into the flow, does something or brings something out of the flow.
 
 These Nodes can be connected which basically tells the data-object where to go next. The standard name for this object is msg, if you want to send one or more data to next node you use the msg.payload field.
+### Common
+- [Inject-Node](#inject-node)
+- [Debug-Node](#debug-node)
+- [ ] not done
+- [Complete-Node](#complete-node)
+- [ ] not done
+- [Catch-Node](#catch-node)
+- [ ] not done
+- [Status-Node](#status-node)
+- [ ] not done
+- [Link-in-Node](#link-in-node)
+- [ ] not done
+- [Link-call-Node](#link-call-node)
+- [ ] not done
+- [Link-out-Node](#link-out-node)
+- [ ] not done
+- [Comment-Node](#comment-node)
+- [ ] not done
 
-- [Inject-Node](#Inject-Node)
+### Function
+- [Function-Node](#function-node)
+- [ ] not done
+- [Switch-Node](#switch-node)
+- [ ] not done
+- [Change-Node](#change-node)
+- [ ] not done
+- [Range-Node](#range-node)
+- [ ] not done
+- [Template-Node](#template-node)
+- [ ] not done
+- [Delay-Node](#delay-node)
+- [ ] not done
+- [Trigger-Node](#trigger-node) 
+- [ ] not done
+- [Exec-Node](#exec-node)
+- [ ] not done
+- [Filter-Node](#filter-node)
+- [ ] not done
+
 ### Inject-Node
 ![Inject-Node](NRIN.jpg)
+
 With this Node you can "inject" a specific message into the flow, this can be once, by clicking the fild left to the node when deployed, repeated, repeated in a specific timeframe or at a specific time.
+
 ![Inject-Node fields](NRIN2.jpg)
+
 You can define the payload but also other Objectfields can be added, at the bottom you can configurate if or when to repeat the injection.
 ## First Example - multiplication of two variable put in by the User
 This is a good example to analyze the variable concept of Node-Red as well as a bit of Visualization via Node-Red.
