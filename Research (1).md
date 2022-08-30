@@ -1,10 +1,10 @@
 
 # Research
 ## table of content
-- [Good to Know](##good%to%know)
-- [First Steps](#First%Steps)
-- [Problems](#Problems)
-- [Node-Red](#Node-Red)
+- [Good to Know](#good-to-know)
+- [First Steps](#first-steps)
+- [Problems](#problems)
+- [Node-Red](#node-red)
 # Good to Know
 ### KNX
 It's a well known facility bus. It knows Aktors (like little bridges that give the power to the light/mic/etc. which react to telegrams that come via the second connection of the bus:
@@ -69,7 +69,7 @@ What are Nodes? - Nodes are everything you can connect with wires, or everything
 
 These Nodes can be connected which basically tells the data-object where to go next. The standard name for this object is msg, if you want to send one or more data to next node you use the msg.payload field.
 
-- [Inject-Node](###Inject-Node)
+- [Inject-Node](#Inject-Node)
 ### Inject-Node
 ![Inject-Node](NRIN.jpg)
 With this Node you can "inject" a specific message into the flow, this can be once, by clicking the fild left to the node when deployed, repeated, repeated in a specific timeframe or at a specific time.
