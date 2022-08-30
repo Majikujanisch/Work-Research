@@ -5,7 +5,7 @@
 - [First Steps](#First%Steps)
 - [Problems](#Problems)
 - [Node-Red](#Node-Red)
-## Good to Know
+# Good to Know
 ### KNX
 It's a well known facility bus. It knows Aktors (like little bridges that give the power to the light/mic/etc. which react to telegrams that come via the second connection of the bus:
 ~~~
@@ -30,7 +30,7 @@ IOBroker is like a bridge between the diffrent scripts, busses, users, etc. It h
 It also has an own "datacoordination" so you can capsulate each adapter and don't have to juggle with variables between adapters.
 
 
-## First Steps
+# First Steps
 ### Download IOBroker
 IOBroker can be installed to Windows via installationwizard found here: [Wizard](https://www.iobroker.net/?page_id=4284&lang=de#de/download)
 
