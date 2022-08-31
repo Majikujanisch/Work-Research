@@ -238,6 +238,15 @@ Just like in Ardiuno Programming the flow can be delayed by a specific amount or
 This Node triggers a send-CMD then it can wait for/Wait to be reset/resent it every x Timeunit.
 Then can send something again as well as being reset if a specific payload comes in or the msg.reset is set.
 The first timer can also be extended if a new message arrives or if msg.delay get overridden.
+
+### Exec-Node
+![Exec-Node](NREN.jpg)
+
+With this node Commands can be set for the CMD-Line, if more than one line is needed create a Script file and run this with the command, also Python skripts can be used.
+The Output can be taken after the command ran or while it runs.
+It has 3 Output "points", 1. is for standard output, Output+Return code   
+Second Output is for standart Error, Error + Return code
+Third Output is for the returning Code
 ## First Example - multiplication of two variable put in by the User
 This is a good example to analyze the variable concept of Node-Red as well as a bit of Visualization via Node-Red.
 ![components](NRE1.jpg)
