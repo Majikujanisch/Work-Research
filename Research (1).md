@@ -77,27 +77,17 @@ Links to Node-Description:
 - [Debug-Node](#debug-node)
 - [Complete-Node](#complete-node)
 - [Catch-Node](#catch-node)
-- [ ] not done
 - [Status-Node](#status-node)
-- [ ] not done
 - [Link-in-Node](#link-in-node)
-- [ ] not done
 - [Link-call-Node](#link-call-node)
-- [ ] not done
 - [Link-out-Node](#link-out-node)
-- [ ] not done
 - [Comment-Node](#comment-node)
-- [ ] not done
 
 ### Function
 - [Function-Node](#function-node)
-- [ ] not done
 - [Switch-Node](#switch-node)
-- [ ] not done
 - [Change-Node](#change-node)
-- [ ] not done
 - [Range-Node](#range-node)
-- [ ] not done
 - [Template-Node](#template-node)
 - [ ] not done
 - [Delay-Node](#delay-node)
@@ -149,6 +139,7 @@ Links to Node-Description:
 ### Dashboard
 - [ ] not done
 
+## Common
 ### Inject-Node
 ![Inject-Node](NRIN.jpg)
 
@@ -175,10 +166,62 @@ No need for pictures or anything, just check the node that should have finished 
 ### Catch-Node
 ![Complete-Node](NRCAN.jpg)
 
-Again no big need to explain a lot, it catches appearing errors, you can change which nodes errors should be caught and also if the flow should be forced to continue
+Again no big need to explain a lot, it catches appearing errors, you can change which nodes errors should be caught and also if the flow should be forced to continue.
 
 ### Status-Node
 ![Status-Node](NRSN.jpg)
+
+With this node you can show specific status information like connected and such in the UI.
+### Link-in-Node
+![Link-In-Node](NRLI.jpg)
+
+This node, together with the Link-Out-node can transfer Data between flows via Node-Red. In the Interface you can see every Link-Out and in the link-out-nodes you can see all link-out-nodes, that's why it's important to give these names.
+
+![Link-in-Interface](NRLII.jpg)
+
+### Link-call-Nodes
+![Link-call-Node](NRLC.jpg)
+
+This can be used to quickly add a function into a flow with just a call. The node calls the Link-Out-Node which you picked and starts at the Link-In-Node of that subflow like this:
+![Link-call-ex](NRLCE.jpg)
+
+### Link-out-Node
+![Link-Out-Node](NRLO.jpg)
+
+Now this node is used to push data out of the flow into another flow with a link in Node.
+### Comment-Node
+![comment-Node](NRCO.jpg)
+
+It is what it says, a comment.
+
+## function
+### Function-Node
+![function-Node](NRFN.jpg)
+
+In this Node you can write JS-Code. There are 4 Tabs: Setup for different Modules.  
+On Start for whenever the Node gets called.  
+On Message for the main code.  
+On Stop for all Code that should be done when the Node is done.
+More about writing the code can be found here: [Function-Writing](https://nodered.org/docs/user-guide/writing-functions)
+
+### Switch-Node
+![Switch-Node](NRSWN.jpg)
+
+This node works like a Java-Switch-Case, so it looks at a value and decides by that what should happen next.
+
+### Change-Node
+![Change-Node](NRCHN.jpg)
+
+Most common use for this node is to set the Value of a variable in this scope or context (At least each flow for itself, Global stays global)
+It can also be used to change the value, delete it or move it from on Variable to another.
+
+### Range-Node
+![Range-Node](NRRN.jpg)
+
+Works like a Map in c++, you can take a range of numbers and rescale it to another range. Lets say you have an array with number from 1 to 250, now you want to show it as percentage so you map the second range from 1 to 100.
+
+### Template-Nodes
+![Template-Node](TN.jpg) 
 
 
 ## First Example - multiplication of two variable put in by the User
