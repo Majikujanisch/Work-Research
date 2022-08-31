@@ -89,18 +89,37 @@ Links to Node-Description:
 - [Change-Node](#change-node)
 - [Range-Node](#range-node)
 - [Template-Node](#template-node)
-- [ ] not done
 - [Delay-Node](#delay-node)
-- [ ] not done
 - [Trigger-Node](#trigger-node)
-- [ ] not done
 - [Exec-Node](#exec-node)
-- [ ] not done
 - [Filter-Node](#filter-node)
-- [ ] not done
 
 ### Network
+- [Mqtt-in-Node](#Mqtt-in-Node)
 - [ ] not done
+- [Mqtt-out-Node](#Mqtt-out-Node)
+- [ ] not done
+- [Http-in-Node](#Http-in-Node)
+- [ ] not done
+- [Http-response-Node](#Http-response-Node)
+- [ ] not done
+- [Http-request-Node](#Http-request-Node)
+- [ ] not done
+- [Websocket-in-Node](#Websocket-in-Node)
+- [ ] not done
+- [Websocket-out-Node](#Websocket-out-Node)
+- [ ] not done
+- [Tcp-in-Node](#Tcp-in-Node)
+- [ ] not done
+- [Tcp-out-Node](#Tcp-out-Node)
+- [ ] not done
+- [Tcp-request-Node](#Tcp-request-Node)
+- [ ] not done
+- [Udp-in-Node](#Udp-in-Node)
+- [ ] not done
+- [Udp-out-Node](#Udp-out-Node)
+- [ ] not done
+
 
 ### Sequence
 - [Split-Node](#split-node)
@@ -130,7 +149,7 @@ Links to Node-Description:
 ### IOBroker
 - [ ] not done
 
-### Operating Systemfunktion
+### Operating System
 - [ ] not done
 
 ### Polymer
