@@ -23,15 +23,10 @@ Links to Node-Description:
 
 ### Network
 - [Mqtt-in-Node](#Mqtt-in-Node)
-- [ ] not done
 - [Mqtt-out-Node](#Mqtt-out-Node)
-- [ ] not done
 - [Http-in-Node](#Http-in-Node)
-- [ ] not done
 - [Http-response-Node](#Http-response-Node)
-- [ ] not done
 - [Http-request-Node](#Http-request-Node)
-- [ ] not done
 - [Websocket-in-Node](#Websocket-in-Node)
 - [ ] not done
 - [Websocket-out-Node](#Websocket-out-Node)
