@@ -247,6 +247,12 @@ The Output can be taken after the command ran or while it runs.
 It has 3 Output "points", 1. is for standard output, Output+Return code   
 Second Output is for standart Error, Error + Return code
 Third Output is for the returning Code
+
+### Filter-Node
+![Filter-Node](NRFIN.jpg)
+
+This Node can be used to update a value only if it's <,> or != the value it was before. Good for not overwriting the same value over and over.
+
 ## First Example - multiplication of two variable put in by the User
 This is a good example to analyze the variable concept of Node-Red as well as a bit of Visualization via Node-Red.
 ![components](NRE1.jpg)
