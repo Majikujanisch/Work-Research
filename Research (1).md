@@ -231,6 +231,13 @@ Output can be JSON, XAML or just plain text, also the template can be done with 
 ![Delay-Node](NRDN.jpg)
 
 Just like in Ardiuno Programming the flow can be delayed by a specific amount or just random.
+
+### Trigger-Node
+![trigger-Node](NRTN.jpg)
+
+This Node triggers a send-CMD then it can wait for/Wait to be reset/resent it every x Timeunit.
+Then can send something again as well as being reset if a specific payload comes in or the msg.reset is set.
+The first timer can also be extended if a new message arrives or if msg.delay get overridden.
 ## First Example - multiplication of two variable put in by the User
 This is a good example to analyze the variable concept of Node-Red as well as a bit of Visualization via Node-Red.
 ![components](NRE1.jpg)
