@@ -209,3 +209,18 @@ Not much to say, it does what it says.
 ![Mqtt-out-Node](Bilder/NodeRed/MQO.jpg)
 
 <Span style="color:red;font-size:50px;">↑</Span> Like  the in-Node
+
+### Http-in-Node
+![Http-In-Node](Bilder/NodeRed/HTI.jpg)
+
+With this node you can either send a POST/GET/PUT/DELETE/PATCH to a specific URL inorder to configure the web server.
+
+### Http-response-Node
+![Http-response-Node](Bilder/NodeRed/HTR.jpg)
+
+The HTTP Response node sends responses back to requests received from the HTTP Input node.
+
+### Http-request-Node
+![Http-Request-Node](Bilder/NodeRed/HTRE.jpg)
+
+Same as the Http-In Node but for APIs and stuff.
