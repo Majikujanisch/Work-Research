@@ -387,3 +387,30 @@ It Aggregates msg.payloads that come in in a specific timeframe. The Aggregation
 ![Sentiment-Node](Bilder/NodeRed/SEN.jpg)
 
 Can be used to analyse language. More infos on the method behind the node: [Click!](https://github.com/thisandagain/sentiment/blob/master/README.md).
+
+## Social
+### Email MTA Node
+![Email-MTA-Node](Bilder/NodeRed/EMM.jpg)
+
+This node is to Text emailing with the Mail Transfer Agent, only dor testing as not really safe.
+
+
+### Email (in) Node
+![Email (in) Node](Bilder/NodeRed/EMI.jpg)
+
+This node checks reguraly for emails in a POP3 or IMAP server and redirects these if not shown before.
+Subjecttext can be found in msg.Topic, the emailtext can be found under msg.payload. More infos are in the help-tab when using it in NodeRed.
+
+### Twitter in Node
+![Twitter in Node](Bilder/NodeRed/TWI.jpg)
+
+This Node can be used to search for tweet on diffrent levels, help can be found in NodeRed for this Node.
+
+### Email (out) Node
+![Email (out) Node](Bilder/NodeRed/EMO.jpg)
+
+This Node can send Emails. More in the Help Tab of NodeRed.
+
+### Twitter out Node
+![Twitter out Node](Bilder/NodeRed/TWO.jpg)
+Send tweets and direct messages. More in the help tab.
