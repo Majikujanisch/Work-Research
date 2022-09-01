@@ -62,83 +62,35 @@ Links to Node-Description:
 
 ### Social
 - [email MTA-Node](#Email-MTA-node)
-- [ ] not done
 - [Email(in)-Node](#Email-in-node)
-- [ ] not done
 - [Twitter-in-Node](#twitter-in-node)
-- [ ] not done
 - [email(out)-Node](#email-out-node)
-- [ ] not done
 - [Twitter-Out-Node](#twitter-out-node)
-- [ ] not done
 
 
 ### Advanced
 - [feedparser-Node](#feedparser-node)
-- [ ] not done
 
 
 ### IOBroker
 - [ioBroker-in-Node](#Iobroker-node)
-- [ ] not done
 - [iobroker-out-Node](#iobroker-out-node)
-- [ ] not done
 - [iobroker-get-Node](#iobroker-get-node)
-- [ ] not done
 - [iobroker-get-Object-Node](#Iobroker-get-Object-node)
-- [ ] not done
 - [IObroker-list-Node](#iobroker-list-node)
-- [ ] not done
 
 ### Operating System
 - [OS-Node](#OS-node)
-- [ ] not done
 - [Drives-Node](#Drives-node)
-- [ ] not done
 - [Uptime-Node](#Uptime-node)
-- [ ] not done
 - [CPUs-Node](#cpus-node)
-- [ ] not done
 - [Loadavg-Node](#aggregator-node)
-- [ ] not done
 - [Memory-Node](#Memory-node)
-- [ ] not done
 - [Networkintf-Node](#Networkintf-node)
-- [ ] not done
 
 ### Dashboard
 - [Button-Node](#button-node)
-- [ ] not done
-- [Dropdown-Node](#dropdown-node)
-- [ ] not done
-- [Switch-Node](#Switch-node)
-- [ ] not done
-- [Slider-Node](#slider-node)
-- [ ] not done
-- [Numeric-Node](#Numeric-node)
-- [ ] not done
-- [Text-Input-Node](#text-input-node)
-- [ ] not done
-- [Date-picker-Node](#date-picker-node)
-- [ ] not done
-- [Colour-picker-Node](#Colour-picker-node)
-- [ ] not done
-- [Form-Node](#form-node)
-- [ ] not done
-- [Text-Node](#text-node)
-- [ ] not done
-- [Gauge-Node](#Gauge-node)
-- [ ] not done
-- [Chart-Node](#Chart-node)
-- [ ] not done
-- [Audio-Out-Node](#audio-Out-node)
-- [ ] not done
-- [Notification-Node](#notification-node)
-- [ ] not done
-- [Ui-control-Node](#ui-control-node)
-- [ ] not done
-- [Template-Node](#Template-UI-node)
-- [ ] not done
+- Most of these work the same and are self explainatory when the visualization is understood.
 
 
 ## Common
@@ -417,5 +369,90 @@ Send tweets and direct messages. More in the help tab.
 
 ## Advanced
 ### Feedparser Node
-![Feedparser Node](Bilder/NodeRed/FEEjpg)
+![Feedparser Node](Bilder/NodeRed/FEE.jpg)
 Observes a RSS/atom-Feed for changes. More info in the Help table.
+
+## ioBroker
+### Iobroker-in-node
+![Iobroker-in Node](Bilder/NodeRed/IOI.jpg)
+
+With this Node variable from IOBroker can be used in NodeRed as well as monitiored (difference to the IOBroker get node)
+
+### Iobroker-out-node
+![Iobroker-out Node](Bilder/NodeRed/IOO.jpg)
+
+With this Node variable from IOBroker can be overwritten.
+
+### Iobroker-Get-node
+![Iobroker get Node](Bilder/NodeRed/IOG.jpg)
+
+With this Node variable from IOBroker can be input into the flow.
+
+### Iobroker-Get-object-node
+![Iobroker get object Node](Bilder/NodeRed/IOGO.jpg)
+
+With this Node variable from IOBroker can be input into the flow as the msg.payload field.
+
+### Iobroker-Get-list-node
+![Iobroker get list Node](Bilder/NodeRed/IOGL.jpg)
+
+With this Node variable from IOBroker can be input into the flow, for IDs.
+
+## Operating System
+### OS-Node
+![OS Node](Bilder/NodeRed/OS.jpg)
+
+This Node returns:
+- Hostname of the operating System
+- the OS name
+- OS CPU Architecture
+- OS release
+- Endian of the CPU
+
+### Drives-Node
+![Drives Node](Bilder/NodeRed/DRI.jpg)
+
+This Node returns:
+- values for size in KB
+- value for capazyity between 0 and 1, *100 is the percentage that is full.
+
+### Uptime-Node
+![Uptime Node](Bilder/NodeRed/UPT.jpg)
+
+Returns the uptime in seconds.
+
+### CPUs-Node
+![CPUs Node](Bilder/NodeRed/CPU.jpg)
+
+Return an Array of Object, each object contains:
+- model
+- speed (MHz)
+- times spend in user, nice, sys, idle, irq in millisec
+
+for each CPU
+
+### Loadavg-Node
+![Loadavg Node](Bilder/NodeRed/LOA.jpg)
+
+Returns an array with the 1, 5 and 15 minute load averages.
+>The load average is a measure of system activity, calculated by the operating system and expressed as a fractional number. As a rule of thumb, the load average should ideally be less than the number of logical CPUs in the system.
+
+>The load average is a very UNIX-y concept; there is no real equivalent on Windows platforms. That is why this node always returns [0, 0, 0] on Windows.
+
+### Memory-Node
+![Memory Node](Bilder/NodeRed/MEM.jpg)
+
+Returns:
+- total amount of systen memory in bytes, kilobyte, megabytes or gigabyte
+- amount of free system memory in bytes, kilobytes, megabytes or gigabytes
+- Memory in use in percentage
+
+### Networkintf-Node
+![Networkintf Node](Bilder/NodeRed/NET.jpg)
+
+Return Network interfaces that have an address assigned.
+
+## Dashboard
+### Button-Node
+![Button Node](Bilder/NodeRed/BUT.jpg)
+With this node you can show a button on the dashboard which can send a msg.payload on press or msg receive. More in how to place dashboard nodes can be found in the visualisation.
