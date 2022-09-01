@@ -28,35 +28,34 @@ Links to Node-Description:
 - [Http-response-Node](#Http-response-Node)
 - [Http-request-Node](#Http-request-Node)
 - [Websocket-in-Node](#Websocket-in-Node)
-- [ ] not done
 - [Websocket-out-Node](#Websocket-out-Node)
-- [ ] not done
 - [Tcp-in-Node](#Tcp-in-Node)
-- [ ] not done
 - [Tcp-out-Node](#Tcp-out-Node)
-- [ ] not done
 - [Tcp-request-Node](#Tcp-request-Node)
-- [ ] not done
 - [Udp-in-Node](#Udp-in-Node)
-- [ ] not done
 - [Udp-out-Node](#Udp-out-Node)
-- [ ] not done
 
 
 ### Sequence
 - [Split-Node](#split-node)
-- [ ] not done
 - [Join-Node](#join-node)
-- [ ] not done
 - [Sort-Node](#sort-node)
-- [ ] not done
 - [Batch-Node](#batch-node)
-- [ ] not done
 
 ### Parser
-- [ ] not done
+- [CSV-Node](#csv-node)
+- [html-Node](csv-node)
+- [json-Node](#csv-node)
+- [xml-Node](#csv-node)
+- [yaml-Node](#csv-node)
+
 
 ### Storage
+- [write-file-Node](#write-file-node)
+- [ ] not done
+- [read-file-Node](#read-file-node)
+- [ ] not done
+- [watch-Node](#watch-node)
 - [ ] not done
 
 ### Analysis
@@ -219,3 +218,92 @@ The HTTP Response node sends responses back to requests received from the HTTP I
 ![Http-Request-Node](Bilder/NodeRed/HTRE.jpg)
 
 Same as the Http-In Node but for APIs and stuff.
+
+### Websocket-in-Node
+![Websocket-in-Node](Bilder/NodeRed/WIN.jpg)
+
+Connector for Websockets
+
+### Websocket-Out-Node
+![Websocket-out-Node](Bilder/NodeRed/WON.jpg)
+
+Connector for Websockets
+
+### TCP-in-Node
+![TCP-IN-Node](Bilder/NodeRed/TIN.jpg)
+
+Connector for TCP communication
+
+### TCP-out-Node
+![TCP-Out-Node](Bilder/NodeRed/TOU.jpg)
+
+Connector for TCP communication
+
+### TCP-Resquest-Node
+![TCP-Request-Node](Bilder/NodeRed/TRE.jpg)
+
+Connector for TCP communication
+
+### UDP-In-Node
+![UDP-In-Node](Bilder/NodeRed/UIN.jpg)
+
+Connector for UDP communication
+
+### UDP-Out-Node
+![UDP-Out-Node](Bilder/NodeRed/UOU.jpg)
+
+Connector for UDP communication
+
+## Sequence
+
+### Split-Node
+![Split-Node](Bilder/NodeRed/SPL.jpg)
+
+This Node can be used to Split the msg.payload into smaller fields of the msg Object, it can Split String/Buffer, Arrays or Objects.
+
+### Join-Node
+![Join-Node](Bilder/NodeRed/JOI.jpg)
+
+This node can be used to put two incoming msg.payload into one field of the msg Object.
+
+### Sort-Node
+![Sort-Node](Bilder/NodeRed/SOR.jpg)
+
+This node can be used to sort a specific field of msg or any variable in the Flow (Global and Flow)
+
+### Batch-Node
+![Batch-Node](Bilder/NodeRed/BAT.jpg)
+
+This node can be used to create Messagesequences with specific rules. It has 3 different modes which are:
+- Group by number of messages
+> The Sequence is defined by a specific number of incoming messages. These can overlap, the overlap can also be configureated
+- Group by time interval
+> The Sequence is defined by a timespan in seconds, it can be configured if the message should also be send empty if no new messages came in
+- Concatenate Sequences
+> The node stores a amount of messages in a puffer, the length of this can be defined in the nodeMessageBufferMaxLength.
+If the Message comes with a set msg.reset property the message gets deleted and not sent.
+
+## Parser
+### CSV-Node
+![CSV-Node](Bilder/NodeRed/CSV.jpg)
+
+Each parser nodes work about the same but with different attributes to configure. When you look into the interface of the node there is everything you need.
+
+
+## Storage
+### Write-file-Node
+![Write-File-Node](Bilder/NodeRed/WFI.jpg)
+
+Can be used to save stuff into a file like a csv file.
+
+### Read-File-Node
+![Read-File-Node](Bilder/NodeRed/RFI.jpg)
+
+With this a file created manualy or with the Write-file-Node can be read again and put back into the flow. another way of moving data from flow to flow or from adapter to adapter.
+
+### Watch-Node
+![Watch-Node](Bilder/NodeRed/WAT.jpg)
+
+This Node works like a observer, if the file gets changed it looks at these changes. The name of the changes data gets put into msg.payload and msg.filename. the Observerlist is in msg.topic. The typ of the changing file gets saved into msg.type and die size into msg.size.
+
+The file that should be watched has to exist, deleting and recreating does not work with the dependencies.
