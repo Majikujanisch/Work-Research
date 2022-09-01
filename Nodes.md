@@ -414,3 +414,8 @@ This Node can send Emails. More in the Help Tab of NodeRed.
 ### Twitter out Node
 ![Twitter out Node](Bilder/NodeRed/TWO.jpg)
 Send tweets and direct messages. More in the help tab.
+
+## Advanced
+### Feedparser Node
+![Feedparser Node](Bilder/NodeRed/FEEjpg)
+Observes a RSS/atom-Feed for changes. More info in the Help table.
