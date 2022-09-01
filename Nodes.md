@@ -52,13 +52,14 @@ Links to Node-Description:
 
 ### Storage
 - [write-file-Node](#write-file-node)
-- [ ] not done
 - [read-file-Node](#read-file-node)
-- [ ] not done
 - [watch-Node](#watch-node)
-- [ ] not done
+
 
 ### Analysis
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
 - [ ] not done
 
 ### Social
@@ -307,3 +308,21 @@ With this a file created manualy or with the Write-file-Node can be read again a
 This Node works like a observer, if the file gets changed it looks at these changes. The name of the changes data gets put into msg.payload and msg.filename. the Observerlist is in msg.topic. The typ of the changing file gets saved into msg.type and die size into msg.size.
 
 The file that should be watched has to exist, deleting and recreating does not work with the dependencies.
+
+## Analysis
+### Aggregator-Node
+![Aggregator-Node](Bilder/NodeRed/AGG.jpg)
+
+It Aggregates msg.payloads that come in in a specific timeframe. The Aggregationmethod can be:
+- Average
+- geometric mean Value
+- harmonic mean Value
+- median Value
+- Minimum
+- Maximum
+- Sum of Values
+
+### Sentimen-Node
+![Sentiment-Node](Bilder/NodeRed/SEN.jpg)
+
+Can be used to analyse language. More infos on the method behind the node: [Click!](https://github.com/thisandagain/sentiment/blob/master/README.md).
