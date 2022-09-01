@@ -58,84 +58,86 @@ Links to Node-Description:
 
 ### Analysis
 - [aggregator-Node](#aggregator-node)
-- [ ] not done
 - [sentiment-Node](#sentiment-node)
-- [ ] not done
 
 ### Social
-- [aggregator-Node](#aggregator-node)
+- [email MTA-Node](#Email-MTA-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [Email(in)-Node](#Email-in-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [Twitter-in-Node](#twitter-in-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [email(out)-Node](#email-out-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [Twitter-Out-Node](#twitter-out-node)
 - [ ] not done
 
 
 ### Advanced
-- [aggregator-Node](#aggregator-node)
+- [feedparser-Node](#feedparser-node)
 - [ ] not done
 
 
 ### IOBroker
-- [aggregator-Node](#aggregator-node)
+- [ioBroker-in-Node](#Iobroker-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [iobroker-out-Node](#iobroker-out-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [iobroker-get-Node](#iobroker-get-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [iobroker-get-Object-Node](#Iobroker-get-Object-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [IObroker-list-Node](#iobroker-list-node)
 - [ ] not done
 
 ### Operating System
-- [aggregator-Node](#aggregator-node)
+- [OS-Node](#OS-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [Drives-Node](#Drives-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [Uptime-Node](#Uptime-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [CPUs-Node](#cpus-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [Loadavg-Node](#aggregator-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [Memory-Node](#Memory-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [Networkintf-Node](#Networkintf-node)
 - [ ] not done
 
 ### Dashboard
-- [aggregator-Node](#aggregator-node)
+- [Button-Node](#button-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [Dropdown-Node](#dropdown-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [Switch-Node](#Switch-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [Slider-Node](#slider-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [Numeric-Node](#Numeric-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [Text-Input-Node](#text-input-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [Date-picker-Node](#date-picker-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [Colour-picker-Node](#Colour-picker-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [Form-Node](#form-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [Text-Node](#text-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [Gauge-Node](#Gauge-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [Chart-Node](#Chart-node)
 - [ ] not done
-- [aggregator-Node](#aggregator-node)
+- [Audio-Out-Node](#audio-Out-node)
 - [ ] not done
-- [sentiment-Node](#sentiment-node)
+- [Notification-Node](#notification-node)
+- [ ] not done
+- [Ui-control-Node](#ui-control-node)
+- [ ] not done
+- [Template-Node](#Template-UI-node)
 - [ ] not done
 
 
