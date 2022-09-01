@@ -63,22 +63,81 @@ Links to Node-Description:
 - [ ] not done
 
 ### Social
+- [aggregator-Node](#aggregator-node)
 - [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+
 
 ### Advanced
+- [aggregator-Node](#aggregator-node)
 - [ ] not done
 
+
 ### IOBroker
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
 - [ ] not done
 
 ### Operating System
+- [aggregator-Node](#aggregator-node)
 - [ ] not done
-
-### Polymer
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
 - [ ] not done
 
 ### Dashboard
+- [aggregator-Node](#aggregator-node)
 - [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [ ] not done
+- [sentiment-Node](#sentiment-node)
+- [ ] not done
+
 
 ## Common
 ### Inject-Node
