@@ -155,14 +155,14 @@ It is what it says, a comment.
 In this Node you can write JS-Code. There are 4 Tabs: Setup for different Modules.  
 On Start for whenever the Node gets called.  
 On Message for the main code.  
-On Stop for all Code that should be done when the Node is done.
+On Stop for all Code that should be done when the Node is done.     
 More about writing the code can be found here: [Function-Writing](https://nodered.org/docs/user-guide/writing-functions)
+or [here](Function.md)
 
 ### Switch-Node
 ![Switch-Node](Bilder/NodeRed/NRSWN.jpg)
 
 This node works like a Java-Switch-Case, so it looks at a value and decides by that what should happen next.
-
 ### Change-Node
 ![Change-Node](Bilder/NodeRed/NRCHN.jpg)
 
