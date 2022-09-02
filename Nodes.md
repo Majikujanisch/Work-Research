@@ -28,57 +28,70 @@ Links to Node-Description:
 - [Http-response-Node](#Http-response-Node)
 - [Http-request-Node](#Http-request-Node)
 - [Websocket-in-Node](#Websocket-in-Node)
-- [ ] not done
 - [Websocket-out-Node](#Websocket-out-Node)
-- [ ] not done
 - [Tcp-in-Node](#Tcp-in-Node)
-- [ ] not done
 - [Tcp-out-Node](#Tcp-out-Node)
-- [ ] not done
 - [Tcp-request-Node](#Tcp-request-Node)
-- [ ] not done
 - [Udp-in-Node](#Udp-in-Node)
-- [ ] not done
 - [Udp-out-Node](#Udp-out-Node)
-- [ ] not done
 
 
 ### Sequence
 - [Split-Node](#split-node)
-- [ ] not done
 - [Join-Node](#join-node)
-- [ ] not done
 - [Sort-Node](#sort-node)
-- [ ] not done
 - [Batch-Node](#batch-node)
-- [ ] not done
 
 ### Parser
-- [ ] not done
+- [CSV-Node](#csv-node)
+- [html-Node](csv-node)
+- [json-Node](#csv-node)
+- [xml-Node](#csv-node)
+- [yaml-Node](#csv-node)
+
 
 ### Storage
-- [ ] not done
+- [write-file-Node](#write-file-node)
+- [read-file-Node](#read-file-node)
+- [watch-Node](#watch-node)
+
 
 ### Analysis
-- [ ] not done
+- [aggregator-Node](#aggregator-node)
+- [sentiment-Node](#sentiment-node)
 
 ### Social
-- [ ] not done
+- [email MTA-Node](#Email-MTA-node)
+- [Email(in)-Node](#Email-in-node)
+- [Twitter-in-Node](#twitter-in-node)
+- [email(out)-Node](#email-out-node)
+- [Twitter-Out-Node](#twitter-out-node)
+
 
 ### Advanced
-- [ ] not done
+- [feedparser-Node](#feedparser-node)
+
 
 ### IOBroker
-- [ ] not done
+- [ioBroker-in-Node](#Iobroker-node)
+- [iobroker-out-Node](#iobroker-out-node)
+- [iobroker-get-Node](#iobroker-get-node)
+- [iobroker-get-Object-Node](#Iobroker-get-Object-node)
+- [IObroker-list-Node](#iobroker-list-node)
 
 ### Operating System
-- [ ] not done
-
-### Polymer
-- [ ] not done
+- [OS-Node](#OS-node)
+- [Drives-Node](#Drives-node)
+- [Uptime-Node](#Uptime-node)
+- [CPUs-Node](#cpus-node)
+- [Loadavg-Node](#aggregator-node)
+- [Memory-Node](#Memory-node)
+- [Networkintf-Node](#Networkintf-node)
 
 ### Dashboard
-- [ ] not done
+- [Button-Node](#button-node)
+- Most of these work the same and are self explainatory when the visualization is understood.
+
 
 ## Common
 ### Inject-Node
@@ -142,14 +155,14 @@ It is what it says, a comment.
 In this Node you can write JS-Code. There are 4 Tabs: Setup for different Modules.  
 On Start for whenever the Node gets called.  
 On Message for the main code.  
-On Stop for all Code that should be done when the Node is done.
+On Stop for all Code that should be done when the Node is done.     
 More about writing the code can be found here: [Function-Writing](https://nodered.org/docs/user-guide/writing-functions)
+or [here](Function.md)
 
 ### Switch-Node
 ![Switch-Node](Bilder/NodeRed/NRSWN.jpg)
 
 This node works like a Java-Switch-Case, so it looks at a value and decides by that what should happen next.
-
 ### Change-Node
 ![Change-Node](Bilder/NodeRed/NRCHN.jpg)
 
@@ -219,3 +232,227 @@ The HTTP Response node sends responses back to requests received from the HTTP I
 ![Http-Request-Node](Bilder/NodeRed/HTRE.jpg)
 
 Same as the Http-In Node but for APIs and stuff.
+
+### Websocket-in-Node
+![Websocket-in-Node](Bilder/NodeRed/WIN.jpg)
+
+Connector for Websockets
+
+### Websocket-Out-Node
+![Websocket-out-Node](Bilder/NodeRed/WON.jpg)
+
+Connector for Websockets
+
+### TCP-in-Node
+![TCP-IN-Node](Bilder/NodeRed/TIN.jpg)
+
+Connector for TCP communication
+
+### TCP-out-Node
+![TCP-Out-Node](Bilder/NodeRed/TOU.jpg)
+
+Connector for TCP communication
+
+### TCP-Resquest-Node
+![TCP-Request-Node](Bilder/NodeRed/TRE.jpg)
+
+Connector for TCP communication
+
+### UDP-In-Node
+![UDP-In-Node](Bilder/NodeRed/UIN.jpg)
+
+Connector for UDP communication
+
+### UDP-Out-Node
+![UDP-Out-Node](Bilder/NodeRed/UOU.jpg)
+
+Connector for UDP communication
+
+## Sequence
+
+### Split-Node
+![Split-Node](Bilder/NodeRed/SPL.jpg)
+
+This Node can be used to Split the msg.payload into smaller fields of the msg Object, it can Split String/Buffer, Arrays or Objects.
+
+### Join-Node
+![Join-Node](Bilder/NodeRed/JOI.jpg)
+
+This node can be used to put two incoming msg.payload into one field of the msg Object.
+
+### Sort-Node
+![Sort-Node](Bilder/NodeRed/SOR.jpg)
+
+This node can be used to sort a specific field of msg or any variable in the Flow (Global and Flow)
+
+### Batch-Node
+![Batch-Node](Bilder/NodeRed/BAT.jpg)
+
+This node can be used to create Messagesequences with specific rules. It has 3 different modes which are:
+- Group by number of messages
+> The Sequence is defined by a specific number of incoming messages. These can overlap, the overlap can also be configureated
+- Group by time interval
+> The Sequence is defined by a timespan in seconds, it can be configured if the message should also be send empty if no new messages came in
+- Concatenate Sequences
+> The node stores a amount of messages in a puffer, the length of this can be defined in the nodeMessageBufferMaxLength.
+If the Message comes with a set msg.reset property the message gets deleted and not sent.
+
+## Parser
+### CSV-Node
+![CSV-Node](Bilder/NodeRed/CSV.jpg)
+
+Each parser nodes work about the same but with different attributes to configure. When you look into the interface of the node there is everything you need.
+
+
+## Storage
+### Write-file-Node
+![Write-File-Node](Bilder/NodeRed/WFI.jpg)
+
+Can be used to save stuff into a file like a csv file.
+
+### Read-File-Node
+![Read-File-Node](Bilder/NodeRed/RFI.jpg)
+
+With this a file created manualy or with the Write-file-Node can be read again and put back into the flow. another way of moving data from flow to flow or from adapter to adapter.
+
+### Watch-Node
+![Watch-Node](Bilder/NodeRed/WAT.jpg)
+
+This Node works like a observer, if the file gets changed it looks at these changes. The name of the changes data gets put into msg.payload and msg.filename. the Observerlist is in msg.topic. The typ of the changing file gets saved into msg.type and die size into msg.size.
+
+The file that should be watched has to exist, deleting and recreating does not work with the dependencies.
+
+## Analysis
+### Aggregator-Node
+![Aggregator-Node](Bilder/NodeRed/AGG.jpg)
+
+It Aggregates msg.payloads that come in in a specific timeframe. The Aggregationmethod can be:
+- Average
+- geometric mean Value
+- harmonic mean Value
+- median Value
+- Minimum
+- Maximum
+- Sum of Values
+
+### Sentimen-Node
+![Sentiment-Node](Bilder/NodeRed/SEN.jpg)
+
+Can be used to analyse language. More infos on the method behind the node: [Click!](https://github.com/thisandagain/sentiment/blob/master/README.md).
+
+## Social
+### Email MTA Node
+![Email-MTA-Node](Bilder/NodeRed/EMM.jpg)
+
+This node is to Text emailing with the Mail Transfer Agent, only dor testing as not really safe.
+
+
+### Email (in) Node
+![Email (in) Node](Bilder/NodeRed/EMI.jpg)
+
+This node checks reguraly for emails in a POP3 or IMAP server and redirects these if not shown before.
+Subjecttext can be found in msg.Topic, the emailtext can be found under msg.payload. More infos are in the help-tab when using it in NodeRed.
+
+### Twitter in Node
+![Twitter in Node](Bilder/NodeRed/TWI.jpg)
+
+This Node can be used to search for tweet on diffrent levels, help can be found in NodeRed for this Node.
+
+### Email (out) Node
+![Email (out) Node](Bilder/NodeRed/EMO.jpg)
+
+This Node can send Emails. More in the Help Tab of NodeRed.
+
+### Twitter out Node
+![Twitter out Node](Bilder/NodeRed/TWO.jpg)
+Send tweets and direct messages. More in the help tab.
+
+## Advanced
+### Feedparser Node
+![Feedparser Node](Bilder/NodeRed/FEE.jpg)
+Observes a RSS/atom-Feed for changes. More info in the Help table.
+
+## ioBroker
+### Iobroker-in-node
+![Iobroker-in Node](Bilder/NodeRed/IOI.jpg)
+
+With this Node variable from IOBroker can be used in NodeRed as well as monitiored (difference to the IOBroker get node)
+
+### Iobroker-out-node
+![Iobroker-out Node](Bilder/NodeRed/IOO.jpg)
+
+With this Node variable from IOBroker can be overwritten.
+
+### Iobroker-Get-node
+![Iobroker get Node](Bilder/NodeRed/IOG.jpg)
+
+With this Node variable from IOBroker can be input into the flow.
+
+### Iobroker-Get-object-node
+![Iobroker get object Node](Bilder/NodeRed/IOGO.jpg)
+
+With this Node variable from IOBroker can be input into the flow as the msg.payload field.
+
+### Iobroker-Get-list-node
+![Iobroker get list Node](Bilder/NodeRed/IOGL.jpg)
+
+With this Node variable from IOBroker can be input into the flow, for IDs.
+
+## Operating System
+### OS-Node
+![OS Node](Bilder/NodeRed/OS.jpg)
+
+This Node returns:
+- Hostname of the operating System
+- the OS name
+- OS CPU Architecture
+- OS release
+- Endian of the CPU
+
+### Drives-Node
+![Drives Node](Bilder/NodeRed/DRI.jpg)
+
+This Node returns:
+- values for size in KB
+- value for capazyity between 0 and 1, *100 is the percentage that is full.
+
+### Uptime-Node
+![Uptime Node](Bilder/NodeRed/UPT.jpg)
+
+Returns the uptime in seconds.
+
+### CPUs-Node
+![CPUs Node](Bilder/NodeRed/CPU.jpg)
+
+Return an Array of Object, each object contains:
+- model
+- speed (MHz)
+- times spend in user, nice, sys, idle, irq in millisec
+
+for each CPU
+
+### Loadavg-Node
+![Loadavg Node](Bilder/NodeRed/LOA.jpg)
+
+Returns an array with the 1, 5 and 15 minute load averages.
+>The load average is a measure of system activity, calculated by the operating system and expressed as a fractional number. As a rule of thumb, the load average should ideally be less than the number of logical CPUs in the system.
+
+>The load average is a very UNIX-y concept; there is no real equivalent on Windows platforms. That is why this node always returns [0, 0, 0] on Windows.
+
+### Memory-Node
+![Memory Node](Bilder/NodeRed/MEM.jpg)
+
+Returns:
+- total amount of systen memory in bytes, kilobyte, megabytes or gigabyte
+- amount of free system memory in bytes, kilobytes, megabytes or gigabytes
+- Memory in use in percentage
+
+### Networkintf-Node
+![Networkintf Node](Bilder/NodeRed/NET.jpg)
+
+Return Network interfaces that have an address assigned.
+
+## Dashboard
+### Button-Node
+![Button Node](Bilder/NodeRed/BUT.jpg)
+With this node you can show a button on the dashboard which can send a msg.payload on press or msg receive. More in how to place dashboard nodes can be found in the visualisation.
