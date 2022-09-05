@@ -9,8 +9,7 @@ don't just paste all nodes into one single Flow, if there are some logical seper
 As you go u will notice that some Node-Combi are always the same, in such cases you can use SubFlows.
 Another way of making reusable Flows are the Link-Nodes, these can link two different flows together like they are one Flow.
 What are the differences?
-| s  |  s |
-|---|---|
-|   s|  s |
-|  s |  s |
-|  s |  s |
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
