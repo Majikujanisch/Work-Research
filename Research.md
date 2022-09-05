@@ -64,6 +64,23 @@ Most times this is the result of a missing nodevars.bat after updating NodeJS. T
 
 # ioBroker
 
+##What is IOBroker?
+It is a free Open Source software to combine different Smart-Home and IoT devices into one big system. It has a global datasystem and a grafical interface to simplify the usage of the application.
+
+## Adapter
+Adapter are like mods you can add to controll different devices with different communication protocols. For example:
+- Alexa
+- KNX
+- Node-RED
+- Discovery (Was used to find devices in the network)
+- Admin (for different user privileges)
+- JavaScript (With blockly and normal, to create predefined Scripts)
+- ...
+
+## compatibility
+It can be installed on SoC-Single Card Computers (RaspPi, OrangePi, usw. ) or on Desktop-PC with Linus, Windows (A big fight but possible) even Docker is possible.
+
+
 # Node-Red
 ## Whats it good for?
 With Node-Red you can theoratically schedule tasks but also build an interface which then starts tasks. It's flow based as well as Webbased.
