@@ -4,6 +4,7 @@
 - [Good to Know](#good-to-know)
 - [First Steps](#first-steps)
 - [Problems](#problems)
+- [IOBroker](#iobroker)
 - [Node-Red](#node-red)
 # Good to Know
 ### KNX
@@ -61,6 +62,25 @@ Now you can update all other Adapter via the Webinterface.
 ### IOBroker CMD Commands not Working
 Most times this is the result of a missing nodevars.bat after updating NodeJS. This could be found in the BackUp-folder of NodeJS or in a freshly set up IOBroker instance. Even if it's working after pasting the nodevars.bat into the NodeJS-Folder you should rerun the Installer on the second option.![Installationoptionen](installer.jpg)
 
+# ioBroker
+
+##What is IOBroker?
+It is a free Open Source software to combine different Smart-Home and IoT devices into one big system. It has a global datasystem and a grafical interface to simplify the usage of the application.
+
+## Adapter
+Adapter are like mods you can add to controll different devices with different communication protocols. For example:
+- Alexa
+- KNX
+- Node-RED
+- Discovery (Was used to find devices in the network)
+- Admin (for different user privileges)
+- JavaScript (With blockly and normal, to create predefined Scripts)
+- ...
+
+## compatibility
+It can be installed on SoC-Single Card Computers (RaspPi, OrangePi, usw. ) or on Desktop-PC with Linus, Windows (A big fight but possible) even Docker is possible.
+
+
 # Node-Red
 ## Whats it good for?
 With Node-Red you can theoratically schedule tasks but also build an interface which then starts tasks. It's flow based as well as Webbased.
@@ -88,9 +108,30 @@ you would'nt have to declare two new variable but for readability i did it. As m
 As Node-Red only send Objects between nodes you can't just send the number.
 
 In case you can't see your widget nodes on the Dashboard make sure to have chosen the right tab an group in the group field of visualization nodes (numeric-input, text-output, gauge, etc.).
+
+## Show Status - a simple Template
+
+Status of light or such might be be better in text if given back to user so we have to somehow translate from a boolean to a text. With just 3 Nodes it is possible and we can even decide which message should be given back. We need an IObroker-In Node, a function Node and an IOBroker-out node assembeled like this:
+![Bool to String](Bilder/NodeRed/BTS.jpg)
+We give in the specific bool we want to translate. In the function Node we have this code:
+~~~
+var indi = msg.payload;
+if(indi == "true"){
+    msg.payload = "Geklickt";
+}
+if (indi == "false") {
+    msg.payload = "nicht Geklickt";
+}
+return msg;
+~~~
+Important is to compare the true/false String instead of the bool-value. This msg gets into a IOBRoker-Out node which writes it to a newly created Datapoint which can then be connected in the VIS-View. This is pretty easy, you just take a String field in the Edit Vis and set the field Object ID to the new Datapoint.
+
+This Datapoint can be created in IOBroker/Objects in the folder 0_userdata/0
+
+
 # TODO
-- [ ] nodes erklären
-- [ ] mehr auf Function eingehen
+- [x] nodes erklären
+- [x] mehr auf Function eingehen
 - [ ] mehr auf template eingehen
 - [ ] Visualisierung mit groups usw erklären
 - [ ] Dateiverkehr zwischen node
