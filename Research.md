@@ -77,9 +77,33 @@ Adapter are like mods you can add to controll different devices with different c
 - JavaScript (With blockly and normal, to create predefined Scripts)
 - ...
 
+Installation of the adapter can be done in the Adapter-Tab as well as over the IOBroker-CMD. Over Webinterface it is a lot easier, just look up the desired Adapter and download it. It will create a Instance of the adapter, some can have more instances.
+
 ## compatibility
 It can be installed on SoC-Single Card Computers (RaspPi, OrangePi, usw. ) or on Desktop-PC with Linus, Windows (A big fight but possible) even Docker is possible.
 
+## Datastructure
+As said we have a global datasystem to use in ever Adapter. In NodeRed we have an IOBRoker in and out Node to use this Datasystem. It can be found under Obejct in the Webinterface. There can be found 9 icons on top of the datatree.
+![Object-Icons](Bilder/IOBroker/Data.JPG)
+1. is to refresh
+2. is for visual purpose
+3. We have close all currently open folder or knots
+4. Open one layer of the current folder
+5. Close one layer of the current folder
+6. Change Status view (Who changed it, is it an original status or just a rewritten one like when translating a bool to text via function in NodeRed, When was the last change)
+7. Add a Datapoint, folder or other data Structure
+8. Upload a Json
+9. Download a Json
+
+## instances
+
+These are installed Adapter which can be started or paused to save RAM. Every Instance needs a base rate of RAM so it is important to disable instances you don't need like the discovery or the Javascript-Adapter as long you don't use it.
+
+## Logs
+In this Tab you can see all Errors, logs or just info for your installed instances.
+
+## Users
+important to know is that user itself don't have permissions but the groups they are in, so always keep that in mind and everything else is self explainatory.
 
 # Node-Red
 ## Whats it good for?
