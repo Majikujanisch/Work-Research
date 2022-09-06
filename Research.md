@@ -152,6 +152,13 @@ Important is to compare the true/false String instead of the bool-value. This ms
 
 This Datapoint can be created in IOBroker/Objects in the folder 0_userdata/0
 
+## Using more than one Room
+
+For this create a Variable to save the room. A dropdown in VIS. Connect them.
+Flow looks like this:
+![Flow more rooms](Bilder/NodeRed/Flow1.jpg)
+
+We set the ButtonState as this is acording to the image in Vis. Current Room gets set by the Vis, as these Values are 1,2,3,... we can work with a simple switch. On every Output we then have to set the payload again to ensure to have the right one. Here we set it to the previous set flow.ButtonState. Then we set the lamp variable (or the real lamp) to on or off, acording to incoming ButtonState.
 
 # TODO
 - [x] nodes erklären

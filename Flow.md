@@ -1,4 +1,9 @@
+[Zurück](Research.md)
 # Developing flows
+## Creating Flows
+Burgermenu, Flow, Add
+Rename flows:
+Burgermenu, Flow, Renames
 ## Flow Structure
 As you go Flows (The single pages) will grow and get uncontrollable, to prevent this there are some key rules to follow and advises to follow.
 
@@ -31,3 +36,17 @@ As you go you will notice that you wan't to give more than one value via the msg
 The Propertys reset and parts should'nt be used as they have some special meanings in some nodes.
 
 ## Documenting flows
+How can be documented?
+- by Nodename and no/almost no crossing wires
+- Groups to indentify discrete section of the flow
+- Moving nodes into SubFlows
+- Via comment nodes or via the debug nodes
+
+### Adding port labels
+In case of more than one output port labels can be used to identify each output.
+
+### Grouping NODES
+This is just to visualize related nodes
+![groups](Bilder/NodeRed/Groups.jpg)
+This can be done by marking all nodes that should be grouped, hamburgermenu, groups, groups selection
+Grouped Nodes can't be configured, so be sure to have everything working before grouping.
