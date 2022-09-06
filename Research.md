@@ -118,7 +118,7 @@ Important is also to deploy the flow before testing, as changes only apply after
 
 ## First Example - multiplication of two variable put in by the User
 This is a good example to analyze the variable concept of Node-Red as well as a bit of Visualization via Node-Red.
-![components](Bilder/NodeRed/NRE1.jpg)
+![components](Bilder/NodeRed/NRE1.JPG)
 Important here is to join the two msg.payload from the numeric nodes to one single msg.payload. In the join you have to set the field "After a number of message parts" to 2.
 the code in the function node should look somewhat like this:
 ~~~javascript
