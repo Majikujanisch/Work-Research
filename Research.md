@@ -161,12 +161,3 @@ Flow looks like this:
 ![Flow more rooms](Bilder/NodeRed/Flow1.JPG)
 
 We set the ButtonState as this is acording to the image in Vis. Current Room gets set by the Vis, as these Values are 1,2,3,... we can work with a simple switch. On every Output we then have to set the payload again to ensure to have the right one. Here we set it to the previous set flow.ButtonState. Then we set the lamp variable (or the real lamp) to on or off, acording to incoming ButtonState.
-
-# TODO
-- [x] nodes erklären
-- [x] mehr auf Function eingehen
-- [ ] mehr auf template eingehen
-- [ ] Visualisierung mit groups usw erklären
-- [ ] Dateiverkehr zwischen node
-- [ ] Dateiverkehr zwischen Adaptern
-Ctrl+Shift+M
