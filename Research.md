@@ -138,6 +138,7 @@ In case you can't see your widget nodes on the Dashboard make sure to have chose
 
 Status of light or such might be be better in text if given back to user so we have to somehow translate from a boolean to a text. With just 3 Nodes it is possible and we can even decide which message should be given back. We need an IObroker-In Node, a function Node and an IOBroker-out node assembeled like this:
 ![Bool to String](Bilder/NodeRed/BTS.JPG)
+
 We give in the specific bool we want to translate. In the function Node we have this code:
 ~~~
 var indi = msg.payload;

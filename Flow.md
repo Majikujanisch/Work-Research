@@ -47,6 +47,6 @@ In case of more than one output port labels can be used to identify each output.
 
 ### Grouping NODES
 This is just to visualize related nodes
-![groups](Bilder/NodeRed/Groups.jpg)
+![groups](Bilder/NodeRed/Groups.JPG)
 This can be done by marking all nodes that should be grouped, hamburgermenu, groups, groups selection
 Grouped Nodes can't be configured, so be sure to have everything working before grouping.
