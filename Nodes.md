@@ -101,7 +101,7 @@ Links to Node-Description:
 
 With this Node you can "inject" a specific message into the flow, this can be once, by clicking the fild left to the node when deployed, repeated, repeated in a specific timeframe or at a specific time.
 
-![Inject-Node fields](Bilder/NodeRed/NRIN2.jpg)
+![Inject-Node fields](tree/master/Bilder/NodeRed/NRIN2.jpg)
 
 You can define the payload but also other Objectfields can be added, at the bottom you can configurate if or when to repeat the injection.
 
