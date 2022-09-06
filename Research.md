@@ -119,6 +119,7 @@ Important is also to deploy the flow before testing, as changes only apply after
 ## First Example - multiplication of two variable put in by the User
 This is a good example to analyze the variable concept of Node-Red as well as a bit of Visualization via Node-Red.
 ![components](Bilder/NodeRed/NRE1.JPG)
+
 Important here is to join the two msg.payload from the numeric nodes to one single msg.payload. In the join you have to set the field "After a number of message parts" to 2.
 the code in the function node should look somewhat like this:
 ~~~javascript
@@ -136,7 +137,7 @@ In case you can't see your widget nodes on the Dashboard make sure to have chose
 ## Show Status - a simple Template
 
 Status of light or such might be be better in text if given back to user so we have to somehow translate from a boolean to a text. With just 3 Nodes it is possible and we can even decide which message should be given back. We need an IObroker-In Node, a function Node and an IOBroker-out node assembeled like this:
-![Bool to String](Bilder/NodeRed/BTS.jpg)
+![Bool to String](Bilder/NodeRed/BTS.JPG)
 We give in the specific bool we want to translate. In the function Node we have this code:
 ~~~
 var indi = msg.payload;
@@ -156,7 +157,7 @@ This Datapoint can be created in IOBroker/Objects in the folder 0_userdata/0
 
 For this create a Variable to save the room. A dropdown in VIS. Connect them.
 Flow looks like this:
-![Flow more rooms](Bilder/NodeRed/Flow1.jpg)
+![Flow more rooms](Bilder/NodeRed/Flow1.JPG)
 
 We set the ButtonState as this is acording to the image in Vis. Current Room gets set by the Vis, as these Values are 1,2,3,... we can work with a simple switch. On every Output we then have to set the payload again to ensure to have the right one. Here we set it to the previous set flow.ButtonState. Then we set the lamp variable (or the real lamp) to on or off, acording to incoming ButtonState.
 
