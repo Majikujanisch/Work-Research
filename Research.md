@@ -62,9 +62,8 @@ Now you can update all other Adapter via the Webinterface.
 ### IOBroker CMD Commands not Working
 Most times this is the result of a missing nodevars.bat after updating NodeJS. This could be found in the BackUp-folder of NodeJS or in a freshly set up IOBroker instance. Even if it's working after pasting the nodevars.bat into the NodeJS-Folder you should rerun the Installer on the second option.![Installationoptionen](installer.JPG)
 
-# ioBroker
 
-##What is IOBroker?
+## What is IOBroker?
 It is a free Open Source software to combine different Smart-Home and IoT devices into one big system. It has a global datasystem and a grafical interface to simplify the usage of the application.
 
 ## Adapter
@@ -104,6 +103,12 @@ In this Tab you can see all Errors, logs or just info for your installed instanc
 
 ## Users
 important to know is that user itself don't have permissions but the groups they are in, so always keep that in mind and everything else is self explainatory.
+
+## Migrating
+
+Basically you should only migrate on the same OS as it was before, if not possible you should set up a new Server. 
+Or we use the BackItUp-Adapter, this one only saves the "blueprint", so theoretical it should work but not tested.
+
 
 # Node-Red
 ## Whats it good for?
