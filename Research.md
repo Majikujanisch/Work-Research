@@ -166,3 +166,11 @@ Flow looks like this:
 ![Flow more rooms](Bilder/NodeRed/Flow1.JPG)
 
 We set the ButtonState as this is acording to the image in Vis. Current Room gets set by the Vis, as these Values are 1,2,3,... we can work with a simple switch. On every Output we then have to set the payload again to ensure to have the right one. Here we set it to the previous set flow.ButtonState. Then we set the lamp variable (or the real lamp) to on or off, acording to incoming ButtonState.
+
+# React
+ 
+ For Frontend i decidet for the React framework NextJS. This has an efficiant way of datahandling and is also well used in the industry which gives a lot of patches and new stuff to use. This way we have a Webside in the end which could be called from anywhere and it should be easy to use it around the whole campus. 
+
+ The language React is based on is JavaScript, an also well used language as well, what makes learning react and its Frameworks easy and more efficiant. It is important to at least know something about React before continuing to NextJS as it uses a lot of the practices used in React.
+
+More to React and its practices [here](React.md)
