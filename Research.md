@@ -6,6 +6,8 @@
 - [Problems](#problems)
 - [IOBroker](#iobroker)
 - [Node-Red](#node-red)
+- [React](#react)
+- [Visualisation](#visualisation)
 # Good to Know
 ### KNX
 It's a well known facility bus. It knows Aktors (like little bridges that give the power to the light/mic/etc. which react to telegrams that come via the second connection of the bus:
@@ -63,7 +65,7 @@ Now you can update all other Adapter via the Webinterface.
 Most times this is the result of a missing nodevars.bat after updating NodeJS. This could be found in the BackUp-folder of NodeJS or in a freshly set up IOBroker instance. Even if it's working after pasting the nodevars.bat into the NodeJS-Folder you should rerun the Installer on the second option.![Installationoptionen](installer.JPG)
 
 
-## What is IOBroker?
+# IOBroker
 It is a free Open Source software to combine different Smart-Home and IoT devices into one big system. It has a global datasystem and a grafical interface to simplify the usage of the application.
 
 ## Adapter
@@ -77,6 +79,15 @@ Adapter are like mods you can add to controll different devices with different c
 - ...
 
 Installation of the adapter can be done in the Adapter-Tab as well as over the IOBroker-CMD. Over Webinterface it is a lot easier, just look up the desired Adapter and download it. It will create a Instance of the adapter, some can have more instances.
+
+### KNX - Adapter
+
+There are 2 Adapter for the KNX management, "KNX" and "Open KNX". The difference is, that the first is made from the KNX-company and has a limited amount of free KNX-Parts. The OpenKNX adapter is the OpenSource variant of the first and should work just fine.
+
+Needed for the configuration are the gateway-ip (on the KNX-main-Part), from where it should be reachable (Network).
+HAS TO BE TESTED: detecting the KNX-Components via the Adapter -> Otherwise we either need a ETS - Licens (1000€) or a company that would give us the ETS-Project after their work is done.
+
+For the control signals, send via Website, the name can be aliased as well within this Adapter.
 
 ## compatibility
 It can be installed on SoC-Single Card Computers (RaspPi, OrangePi, usw. ) or on Desktop-PC with Linus, Windows (A big fight but possible) even Docker is possible.
@@ -103,7 +114,13 @@ In this Tab you can see all Errors, logs or just info for your installed instanc
 
 ## Users
 important to know is that user itself don't have permissions but the groups they are in, so always keep that in mind and everything else is self explainatory.
+- ID: system.user.name
+- Name: Should be uniqe
+- Password
 
+## Groups
+As said before, user don't have permissions but the Groups they are assigned to. Permissions can be given in these fields:
+![Permissions Group](Bilder/IOBroker/GroupsPermissions.JPG)
 ## Migrating
 
 Basically you should only migrate on the same OS as it was before, if not possible you should set up a new Server. 
@@ -120,6 +137,10 @@ These Nodes can be connected which basically tells the data-object where to go n
 
 Important is also to deploy the flow before testing, as changes only apply after deployment.
 [NODES](Nodes.md)
+
+## context storage
+
+Node Red has 3 different contexts to write to, the current context "context" (if only needed in one node), the flows context "flow" (if only needed in flow) and the global context "global" for all flows in the current Node-Red instance.
 
 ## First Example - multiplication of two variable put in by the User
 This is a good example to analyze the variable concept of Node-Red as well as a bit of Visualization via Node-Red.
@@ -169,8 +190,31 @@ We set the ButtonState as this is acording to the image in Vis. Current Room get
 
 # React
  
- For Frontend i decidet for the React framework NextJS. This has an efficiant way of datahandling and is also well used in the industry which gives a lot of patches and new stuff to use. This way we have a Webside in the end which could be called from anywhere and it should be easy to use it around the whole campus. 
+ For Frontend i decidet for the React framework NextJS made by Vercel. This has an efficiant way of datahandling and is also well used in the industry which gives a lot of patches and new stuff to use. This way we have a Website in the end which could be called from anywhere and it should be easy to use it around the whole campus. Also Routing is faster with NextJS and for the Usermanagement and stuff like that is managed by Ory, more later.
 
  The language React is based on is JavaScript, an also well used language as well, what makes learning react and its Frameworks easy and more efficiant. It is important to at least know something about React before continuing to NextJS as it uses a lot of the practices used in React.
 
-More to React and its practices [here](React.md)
+More to React and its practices (As well as NextJS) [here](React.md)
+
+# Visualisation
+
+To visualise the UI to the client there are a lot of inbuilt Adapter for IOBroker, but if the IOBroker breaks, the Website will also not work. To have a independent site, i chose an option that is not an adapter. I used the React Framework NextJS. 
+
+## Needs
+
+So what should the visualization do? 
+
+- Controll lights in different rooms
+- being able to record
+- zoom, Focus, etc
+- Userlogin
+- Weitere Sicherheitsstufe, um User freizuschalten
+
+## current Workflow 
+
+- Creating a Datapoint in IOBroker (when connected with KNX -> check if the knx datapoints can be directly written)
+- if KNX Datapoint can't be written directly:
+  - NodeRed listens to the Datapoint above
+  - NodeRed Workflow (see Above)
+  
+
