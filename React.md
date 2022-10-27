@@ -71,3 +71,70 @@ function Square(props) {
   );
 }
 ```
+This way I built most of the App, which is on [this](https://git.intra.uibk.ac.at/c102371/webseitestudioansteuerung) Repo, documentation can be found [here](ReactAppReadMe.md)
+
+# NextJS
+
+## basic datastructure
+Most NextJS have da datastructure similar to this:
+- pages (All pages that should be routable (except api, these sites will not be bundeled into the clientsided build))
+  - admin 
+    - index.js (https://localhost:port/admin)
+  - api
+    - apihandler, etc
+  - index.js (https://localhost:port/)
+- public (static content like Pictures)
+- styles (for CSS)
+  - globals.css 
+  - indexside.module.css (For each page a own module can be created)
+- components 
+
+## Data Fetching
+NextJs has 4 different prebuilt ways to get props:
+ - GetServerSideProps (HTML generated at request)
+ - GetStaticProps (HTML generated at Build, reused on request)
+ - incremental Stativ Regenartion (Reload of the Page with revalidate)
+ - Client Side Fetching with useEffect
+[studs](https://nextjs.org/docs/basic-features/data-fetching/overview)
+
+## Navigation
+For Navigation NextJs uses the Link Component exported from next/link
+example:
+```jsx
+import Link from 'next/link'
+
+function Home() {
+  return (
+    <ul>
+      <li>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/about">
+          <a>About Us</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/blog/hello-world">
+          <a>Blog Post</a>
+        </Link>
+      </li>
+    </ul>
+  )
+}
+
+export default Home
+```
+
+## Dev vs Production
+NextJs can be run in Dev or in a production built. The basic difference is following:
+- getStaticProps gets loaded on every request (Dev)
+- getStaticProps gets loaded once on built
+
+## Authentification
+As we also wanted Users to be able to access the side and block out everyone with no access we will need an Authentification service. Possible hooks would have been:
+- Supertoken -> lots of guides
+- Clerk -> SelfService inbuilt
+- Ory Kratos -> Recovery, AdminApi, Selfservice via module, different identity Schemes possible, Activation via Admin possible.
