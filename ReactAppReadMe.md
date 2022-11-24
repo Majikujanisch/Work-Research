@@ -4,8 +4,11 @@ Project: [GitLab](https://git.intra.uibk.ac.at/c102371/webseitestudioansteuerung
 
 # Quick Overview
 - NextJSProject: Default runs on Port 3000
+    - Most of Business logic and index page
 - kratos-admin-ui: running on Port 3001
+  - Just a Admin-ui for Ory/Kratos, not selfmade
 - SelfService: runns on Port 4455
+  - Runs SelfServices for all except Login and Registration
 
 # Getting Started
 
@@ -71,6 +74,7 @@ the current Identity-Scheme for "Benutzer" looks like this:
         "User": {
           "type": "string",
           "title": "C-Code",
+          "pattern": "^c[0-9]{6}$",
           "ory.sh/kratos": {
             "credentials": {
               "password": {
@@ -104,10 +108,271 @@ the current Identity-Scheme for "Benutzer" looks like this:
   }
 }
 ```
-This Identity the Traits: User, the Password is used to identify if it is the right person and gets saved hashed in the db. The only real modification to the preset from ory is the metadata_public that tells us the Admin Status of an User.
+This Identity has the Traits: User, the Password is used to identify if it is the right person and gets saved hashed in the db. The only real modification to the preset from ory is the metadata_public that tells us the Admin Status of an User.
+Also I Added a Pattern to the Username to fit into the format: c000000
+
+## Ory Kratos Configuration Yaml
+Ory Kratos and other services by Ory are configured via yaml files, which get called while the start of the Service
+
+For Ory Kratos the Start-command looks like this:
+kratos serve -c ```<Path-to-yaml>```
+
+If selfhosted the DB has to be migrated first with:
+::kratos migrate sql "mysql://user:pw@tcp(localhost:3306)/User"
+
+### current configurations + some explanations
+``` yaml
+version: v0.10.1
+
+dsn: mysql://root:root@tcp(localhost:3306)/User?parseTime=true
+
+serve:
+  #for the public Kratos API (No Metadata, some API point are only over the Admin API accessible) 
+  public:
+    #Port to Run Public API
+    base_url: http://127.0.0.1:4433/
+    cors:
+      enabled: true
+      # Cors allowed from main project and the Admin-UI
+      allowed_origins:
+        - http://localhost:3000/
+        - http://localhost:3001/ # Admin-Ui
+      allowed_methods:
+        - POST
+        - GET
+        - PUT
+        - PATCH
+        - DELETE
+      allowed_headers:
+        - Authorization
+        - Cookie
+        - Content-Type
+      exposed_headers:
+        - Content-Type
+        - Set-Cookie
+  #rules for Admin-API
+  admin:
+    base_url: http://127.0.0.1:4434/
+      
+    
+# Which Selfservices should be run, where should the get you to and what should be done before, while and after
+selfservice:
+  default_browser_return_url: http://localhost:3000/
+  allowed_return_urls:
+    - http://localhost:3000/
+
+  methods:
+    password:
+      enabled: true
+
+  flows:
+    error:
+      ui_url: http://127.0.0.1:4455/error
+
+    settings:
+      ui_url: http://127.0.0.1:4455/settings
+      privileged_session_max_age: 15m
+
+    recovery:
+      enabled: true
+      ui_url: http://127.0.0.1:4455/recovery
+
+    verification:
+      enabled: true
+      ui_url: http://127.0.0.1:4455/verification
+      after:
+        default_browser_return_url: http://127.0.0.1:4455/
+
+    logout:
+      after:
+        default_browser_return_url: http://localhost:3000/Login
+
+    login:
+      ui_url: http://localhost:3000/Login
+      lifespan: 10m
+
+    registration:
+      lifespan: 10m
+      ui_url: http://localhost:3000/Registration
+      after:
+        password:
+          hooks:
+            -
+              hook: session
+# logging
+log:
+  level: debug
+  format: text
+  leak_sensitive_values: true
+
+secrets:
+  cookie:
+    - PLEASE-CHANGE-ME-I-AM-VERY-INSECURE
+  cipher:
+    - 32-LONG-SECRET-NOT-SECURE-AT-ALL
+# algorithms
+ciphers:
+  algorithm: xchacha20-poly1305
+#hashing function
+hashers:
+  algorithm: bcrypt
+  bcrypt:
+    cost: 8
+#identity with default (if no other identity gets called) and all Schemas that can be used, here with only one User: Benutzer
+identity:
+  default_schema_id: Benutzer
+  schemas:
+    - id: Benutzer
+      url: base64://ewogICIkaWQiOiAiQmVudXR6ZXIiLAogICJ0aXRsZSI6ICJQZXJzb24iLAogICJ0eXBlIjogIm9iamVjdCIsCiAgInByb3BlcnRpZXMiOiB7CiAgICAidHJhaXRzIjogewogICAgICAidHlwZSI6ICJvYmplY3QiLAogICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAiVXNlciI6IHsKICAgICAgICAgICJ0eXBlIjogInN0cmluZyIsCiAgICAgICAgICAidGl0bGUiOiAiQy1Db2RlIiwKICAgICAgICAgICJwYXR0ZXJuIjogIl5jWzAtOV17Nn0kIiwKICAgICAgICAgICJvcnkuc2gva3JhdG9zIjogewogICAgICAgICAgICAiY3JlZGVudGlhbHMiOiB7CiAgICAgICAgICAgICAgInBhc3N3b3JkIjogewogICAgICAgICAgICAgICAgImlkZW50aWZpZXIiOiB0cnVlCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAid2ViYXV0aG4iOiB7CiAgICAgICAgICAgICAgICAiaWRlbnRpZmllciI6IHRydWUKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJ0b3RwIjogewogICAgICAgICAgICAgICAgImFjY291bnRfbmFtZSI6IHRydWUKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgIH0sCiAgICAgICAgICAibWF4TGVuZ3RoIjogMzIwCiAgICAgICAgfQogICAgICB9LAogICAgICAicmVxdWlyZWQiOiBbCiAgICAgICAgIlVzZXIiCiAgICAgIF0sCiAgICAgICJtZXRhZGF0YV9wdWJsaWMiOiB7CiAgICAgICAgInR5cGUiOiAib2JqZWN0IiwKICAgICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAgICJJc0FkbWluIjogewogICAgICAgICAgICAidHlwZSI6ICJib29sZWFuIiwKICAgICAgICAgICAgImRlZmF1bHQiOiBmYWxzZQogICAgICAgICAgfQogICAgICAgIH0KICAgICAgfSwKICAgICAgImFkZGl0aW9uYWxQcm9wZXJ0aWVzIjogZmFsc2UKICAgIH0KICB9Cn0=
+#its possible to also add emails and send emails but not used for this project
+courier:
+  smtp:
+    connection_uri: smtps://test:test@mailslurper:1025/?skip_ssl_verify=true
+
+```
+# Ory Oathkeeper
+is another Service from Ory thats been used for Usermanagement as it checks headers and configures them acordingly to their source and destination Address.
+
+It also makes sure that only source-destination combination get trough that we first defined with rules in the rules.yaml
+
+How Oathkeeper should run and be configured is written in the oathkeeper.yaml and get read in on Start of the Service which can be done like this:
+oathkeeper serve -c ```<path to oathkeeper.yaml>```
+ ## Oathkeeper.yaml
+ Here are all configuration we want to make to Oathkeeper, it looks like this:
+```yaml
+serve:
+  proxy:
+    port: 4450 # run the proxy at port 4450
+    cors:
+      enabled: true
+    
+  api:
+    port: 4456 # run the api at port 4456
+  prometheus:
+    port: 9090
+    host: localhost
+    metrics_path: /metrics
+  
+
+# how the access-rules should behave and match patterns
+access_rules:
+  matching_strategy: regexp
+  repositories:
+    - file:///C:/Users/c102371/Documents/Blog/nextjsfirsttry/nextjsfirsttry/oathkeeper/rules.yaml
+
+errors:
+  fallback:
+    - json
+  handlers:
+    json:
+      enabled: true
+      config:
+        verbose: true
+    redirect:
+      enabled: true
+      config:
+        to: https://www.ory.sh/docs
+
+mutators:
+  header:
+    enabled: true
+    config:
+      headers:
+        X-User: "{{ print .Subject }}"
+        # You could add some other headers, for example with data from the
+        # session.
+        # X-Some-Arbitrary-Data: "{{ print .Extra.some.arbitrary.data }}"
+  noop:
+    enabled: true
+  id_token:
+    enabled: true
+    config:
+      issuer_url: http://localhost:4450/
+      jwks_url: file:///jwks.json
+
+authorizers:
+  allow:
+    enabled: true
+
+authenticators:
+  bearer_token:
+    enabled: true
+    config:
+      check_session_url: https://session-store-host
+      token_from:
+        header: ory_pat_AzRrrvr93n07gTwFDDbNs9biAnrW3JYz
+  noop:
+    # Set enabled to true if the authenticator should be enabled and false to disable the authenticator. Defaults to false.
+    enabled: true
+
+  anonymous:
+    enabled: true
+    config:
+      subject: guest
 
 
+```
+## rules.yaml
+here are all rules that can match a specific redirect or source-destiny-pair
+eg.:
+```yaml
+#first the name of the Rule, most of the time this already tells you what the rule does
+- id: RuleOne
+# which version of Oathkeeper was this written
+  version: v0.40.0
+  # link that we should get send to
+  upstream: 
+    url: http://127.0.0.1:4434/admin/identities/ecc393ba-d46f-4fea-b1c6-6edb4
+    preserve_host: false
+  # incomming request link
+  match:
+    url: http://127.0.0.1:4450/admin/identities/ecc393ba-d46f-4fea-b1c6-6edbdad60734
+    methods:
+      - GET
+      - DELETE
+  authenticators:
+    - handler: anonymous
+    - handler: noop
+    - handler: bearer_token
+      config: 
+        token_from: 
+          header: ory_pat_AzRrrvr93n07gTwFDDbNs9biAnrW3JYz
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+  errors:
+    - handler: json
+    - handler: json
+
+- id: Rule
+  version: v0.40.0
+  upstream: 
+    url: http://127.0.0.1:4434/admin/identities/<.*>
+    strip_path: admin/identities/<.*>
+  match:
+    url: http://localhost:4450/admin/identities/<.*>
+    methods:
+      - GET
+      - DELETE
+      - PUT
+  authenticators:
+    - handler: anonymous
+    - handler: noop
+    - handler: bearer_token
+      config: 
+        token_from: 
+          header: ory_pat_AzRrrvr93n07gTwFDDbNs9biAnrW3JYz
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+  errors:
+    - handler: json
+    - handler: json
+```
 # Components
+(look into Ory Elements, new way to make login and such)
 Here is a quick explaining how the custom components should work and how to use em in code.
 
 ## APILoginButton
@@ -238,5 +503,43 @@ Switch(room, text, lightnumber)
 
 ```
 
+# Pages
+A quick summary what which page does
+
+## VideoWithMediaRecorder.tsx
+First version of an own Recorder for the Page -> SetState got an infinit set/reload Cycle
+
+## Video.tsx
+VideoWithMediaRecorder rework, a basic videocapturer but not recorder. 
+With the recordingfeature it started to eat a lot of resources 
+
+## TestComp.tsx
+A Site with Slider to Test Component without changing the frontpage
+
+## Registration.tsx
+The regisration page, can be accessed via the Login page, one of 2 Pages that are SelfService but in the main project (NextJSProject)
+
+## Login.tsx
+The Login Page with Ory integration -> Fields are generated according to the Ory Kratos Identity-Schema
+
+## index.tsx
+Main Page of the Website, here are some API-Button, Meta-Buttons(Kratos-API) or testing for features
+The Roomselection is also on this page
+
+## error.tsx
+A Test Page for the Error functionality
+
+## Admin.tsx
+A Page that got created before the Admin-UI
+
+## 404.js
+The 404 Error Page
+
+## _app.js
+Page that every NextJS App needs, for global style Sheets
+
+## rooms
+A Folder for the different Rooms, so every room can have different components depending on room equipment
+Current rooms are just test rooms
 
 
